@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+#  A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard. 
+gem 'jwt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use mysql as the database for Active Record
