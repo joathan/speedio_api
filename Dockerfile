@@ -19,4 +19,4 @@ VOLUME /speedio_api
 RUN chmod +x /speedio_api/startup.sh
 EXPOSE 3000
 
-CMD ["/bin/sh","-c","/speedio_api/startup.sh"]
+ENTRYPOINT ["sh", "/speedio_api/startup.sh"]
