@@ -13,3 +13,5 @@ ADD Gemfile.lock /speedio_api/Gemfile.lock
 RUN bundle install
 
 ADD . /speedio_api
+
+VOLUME /speedio_api
