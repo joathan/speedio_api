@@ -1,20 +1,40 @@
 # README
 
-Setup:
+### Setup:
 
-Usando o docker, execute no terminal:
+1 - Usando o docker, crie uma rede executando no terminal o comando:
 
 ```sh
-docker-compose up -d
+docker network create -d bridge rede
 ```
 
-Endereço do fontend:
-http://localhost:8080
+2 - Faça um build da do projeto
 
-Endereço da api: 
-http://localhost:3000
+```sh
+docker build -t speedio_api:latest .
+```
 
-Cadastro na api via CURL:
+3 - Suba o container
+
+```sh
+docker run -d --network=rede -p 3000:3000 speedio_api
+```
+
+### Endereço da api: http://localhost:3000/api/v1
+
+4 - Para listar as Urls cadastradas, execute o comando:
+```sh
+curl --location --request GET 'http://localhost:3000/api/v1/short_urls' \
+--header 'Content-Type: application/json'
+```
+
+5 - Para listar os top 100 de Urls, digite o comando:
+```sh
+curl --location --request GET 'http://localhost:3000/api/v1/short_urls?top=100' \
+--header 'Content-Type: application/json'
+```
+
+### Cadastro de user na api via CURL:
 
 ```sh
 curl --location --request POST 'http://localhost:3000/signup' \
@@ -29,5 +49,4 @@ curl --location --request POST 'http://localhost:3000/signup' \
 ## Melhorias na implementação:
 
 - Paginação dos resultados
-- Testes nos frontend
-- 
+- Mais coberturas de testes
