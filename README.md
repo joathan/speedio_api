@@ -51,7 +51,7 @@ curl --location --request POST 'http://localhost:3000/signup' \
 }'
 ```
 
-## Melhorias na implementação:
+## Melhorias futuras na implementação:
 
 - Paginação dos resultados
 - Mais coberturas de testes
