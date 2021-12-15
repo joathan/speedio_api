@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+900.times.each {|s| UrlShortener.shorten("http://meusite#{s}.com.br")}
+
+ShortUrl.all.each do |url|
+  url.update(hits: rand(999))
+end
