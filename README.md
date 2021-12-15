@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Setup:
 
-Things you may want to cover:
+Usando o docker, execute no terminal:
 
-* Ruby version
+```sh
+docker-compose up -d
+```
 
-* System dependencies
+Endereço do fontend:
+http://localhost:8080
 
-* Configuration
+Endereço da api: 
+http://localhost:3000
 
-* Database creation
+Cadastro na api via CURL:
 
-* Database initialization
+```sh
+curl --location --request POST 'http://localhost:3000/signup' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "Joathan Francisco",
+    "email": "joathanf@gmail.com",
+    "password": "123456"
+}'
+```
 
-* How to run the test suite
+## Melhorias na implementação:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Paginação dos resultados
+- Testes nos frontend
+- 
