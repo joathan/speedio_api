@@ -7,23 +7,18 @@ module Api
       def index
         @short_urls = if params[:top].present?
                         ShortUrl.top(params[:top])
-                      else 
+                      else
                         ShortUrl.all
                       end
       end
 
       def create
-        
-        # binding.pry
-        
-        # return json_response(nil, :unprocessable_entity) unless short_url_params[:long_url]
-
         @short_url = UrlShortener.shorten(short_url_params[:long_url])
       end
 
       def visit
-         @short_url.hits += 1
-         @short_url.save
+        @short_url.hits += 1
+        @short_url.save
       end
 
       private
