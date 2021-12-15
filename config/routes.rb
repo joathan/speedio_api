@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post 'auth/login', to: 'authentication#authenticate', defaults: { format: 'json' }
+  post 'signup', to: 'users#create', defaults: { format: 'json' }
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users, only: %i[index show]
+      resources :short_urls do
+        member do
+          post :visit
+        end
+      end
+    end
+  end
 end
