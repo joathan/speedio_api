@@ -8,13 +8,13 @@
 docker run --name db --network=rede -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
 ```
 
-2 - Usando o docker, crie uma rede executando no terminal o comando:
+2 - Crie uma rede com o comando:
 
 ```sh
 docker network create -d bridge rede
 ```
 
-3 - Faça um build da do projeto           
+3 - Faça um build da aplicação com o comando:           
 
 ```sh
 docker build -t speedio_api:latest .
