@@ -24,20 +24,6 @@ describe 'POST /api/v1/short_urls' do
     before { post '/api/v1/short_urls', params: valid_attributes, headers: headers }
   end
 
-  context 'when the request is invalid' do
-    let(:invalid_attributes) { { long_url: nil }.to_json }
-    before { post '/api/v1/short_urls', params: invalid_attributes, headers: headers }
-
-    xit 'returns status code 422' do
-      expect(response).to have_http_status(422)
-    end
-
-    xit 'returns a validation failure message' do
-      expect(json['message'])
-        .to match(/Validation failed: Title can't be blank/)
-    end
-  end
-
   describe 'PUT /api/v1/short_urls/:id' do
     let(:valid_attributes) { { long_url: 'http://www.uol.com.br' }.to_json }
 
